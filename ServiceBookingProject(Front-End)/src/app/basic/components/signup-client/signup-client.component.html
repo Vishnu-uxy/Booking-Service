@@ -1,0 +1,75 @@
+<div class="container">
+  <h1 class="text-center">Signup Client</h1>
+
+  <form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <!-- Email -->
+    <div class="mb-3">
+      <label>Email</label>
+      <input type="email" formControlName="email" class="form-control" />
+      <span *ngIf="validateForm.get('email')?.hasError('required') && validateForm.get('email')?.touched" class="text-danger">
+        Email is required.
+      </span>
+      <span *ngIf="validateForm.get('email')?.hasError('pattern') && validateForm.get('email')?.touched" class="text-danger">
+        Enter a valid email address.
+      </span>
+    </div>
+
+    <!-- Name -->
+    <div class="mb-3">
+      <label>Name</label>
+      <input type="text" formControlName="name" class="form-control" />
+      <span *ngIf="validateForm.get('name')?.hasError('required') && validateForm.get('name')?.touched" class="text-danger">
+        Name is required.
+      </span>
+    </div>
+
+    <!-- Last Name -->
+    <div class="mb-3">
+      <label>Last Name</label>
+      <input type="text" formControlName="lastname" class="form-control" />
+      <span *ngIf="validateForm.get('lastname')?.hasError('required') && validateForm.get('lastname')?.touched" class="text-danger">
+        Last name is required.
+      </span>
+    </div>
+
+    <!-- Phone -->
+    <div class="mb-3">
+      <label>Phone</label>
+      <input type="tel" formControlName="phone" class="form-control" />
+      <span *ngIf="validateForm.get('phone')?.hasError('required') && validateForm.get('phone')?.touched" class="text-danger">
+        Phone number is required.
+      </span>
+      <span *ngIf="validateForm.get('phone')?.hasError('pattern') && validateForm.get('phone')?.touched" class="text-danger">
+        Enter a valid 10-digit phone number.
+      </span>
+    </div>
+
+    <!-- Password -->
+    <div class="mb-3">
+      <label>Password</label>
+      <input type="password" formControlName="password" class="form-control" />
+      <span *ngIf="validateForm.get('password')?.hasError('required') && validateForm.get('password')?.touched" class="text-danger">
+        Password is required.
+      </span>
+      <span *ngIf="validateForm.get('password')?.hasError('minlength') && validateForm.get('password')?.touched" class="text-danger">
+        Password must be at least 6 characters long.
+      </span>
+    </div>
+
+    <!-- Confirm Password -->
+    <div class="mb-3">
+      <label>Confirm Password</label>
+      <input type="password" formControlName="confirmPassword" class="form-control" />
+      <span *ngIf="validateForm.get('confirmPassword')?.hasError('required') && validateForm.get('confirmPassword')?.touched" class="text-danger">
+        Confirm Password is required.
+      </span>
+      <span *ngIf="validateForm.get('confirmPassword')?.hasError('passwordMismatch')" class="text-danger">
+        Passwords do not match.
+      </span>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary" [disabled]="validateForm.invalid">Register</button>
+  </form>
+</div>
+<router-outlet></router-outlet>

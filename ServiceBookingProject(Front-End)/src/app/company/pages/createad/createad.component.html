@@ -1,0 +1,96 @@
+<div class="wrapper">
+<div style="background-color: #f8f8f8;">
+    <div class="parent">
+        <div class="child">
+
+            <div class="imgDiv">
+                <h2 style="text-align: center;">Create Ad</h2>
+            </div>
+
+            <form [formGroup]="validateForm" (ngSubmit)="postAd()">
+                <!-- Image Upload Section -->
+                <div class="row">
+                    <div class="profile-badge">
+                        <label for="upload_profile_image" class="upload-label" *ngIf="selectedFile">
+                            <img class="profile" [src]="imagePreview" alt="profile">
+                        </label>
+                        <input id="upload_profile_image" type="file" accept="image/x-png,image/gif,image/jpeg" (change)="onFileSelected($event)" />
+                        <!-- <label for="upload_profile_image" class="choose-image-button">Choose Image</label> -->
+                    </div>
+                </div>
+
+                <!-- Service Name Input -->
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="serviceName">Service Name</label>
+                    <input
+                        id="serviceName"
+                        type="text"
+                        placeholder="Service Name"
+                        formControlName="serviceName"
+                        class="form-control"
+                    />
+                    <div class="error" *ngIf="validateForm.get('serviceName')?.invalid && validateForm.get('serviceName')?.touched">
+                        This Input Is Required
+                    </div>
+                </div>
+
+                <!-- Service Category Dropdown -->
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="category">Category</label>
+                    <select
+                        id="category"
+                        formControlName="category"
+                        class="form-control"
+                    >
+                        <option value="" disabled selected>Select a Category</option>
+                        <option value="repairing">Repairing</option>
+                        <option value="washing">Washing</option>
+                        <option value="cleaning">Cleaning</option>
+                        <option value="maintenance">Maintenance</option>
+                        <option value="installation">Installation</option>
+                    </select>
+                    <div class="error" *ngIf="validateForm.get('category')?.invalid && validateForm.get('category')?.touched">
+                        This Input Is Required
+                    </div>
+                </div>
+
+                <!-- Price Input -->
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input
+                        id="price"
+                        type="number"
+                        placeholder="Price"
+                        formControlName="price"
+                        class="form-control"
+                    />
+                    <div class="error" *ngIf="validateForm.get('price')?.invalid && validateForm.get('price')?.touched">
+                        This Input Is Required
+                    </div>
+                </div>
+
+                <!-- Description Input -->
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea
+                        id="description"
+                        rows="2"
+                        placeholder="Description"
+                        formControlName="description"
+                        class="form-control"
+                    ></textarea>
+                    <div class="error" *ngIf="validateForm.get('description')?.invalid && validateForm.get('description')?.touched">
+                        This Input Is Required
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary" [disabled]="validateForm.invalid">
+                    Add
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+<router-outlet></router-outlet>

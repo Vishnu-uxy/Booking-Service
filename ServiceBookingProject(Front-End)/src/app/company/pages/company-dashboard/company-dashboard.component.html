@@ -1,0 +1,31 @@
+<div class="wrapper1">
+  <div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Client Name</th>
+          <th>Service</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of bookings">
+          <td>{{ booking.userName }}</td>
+          <td>{{ booking.serviceName }}</td>
+          <td class="date-cell">{{ booking.bookDate | date: 'dd/MM/yyyy' }}</td>
+          <td class="status-cell">{{ booking.reservationStatus }}</td>
+          <td>
+            <span *ngIf="booking.reservationStatus === 'PENDING'" class="action-buttons">
+              <button class="approve-btn" (click)="changeBookingStatus(booking.id,'Approve')">Approve</button>
+              <button class="reject-btn" (click)="changeBookingStatus(booking.id,'Reject')">Reject</button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

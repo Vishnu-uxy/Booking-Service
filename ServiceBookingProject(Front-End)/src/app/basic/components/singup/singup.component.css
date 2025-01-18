@@ -1,0 +1,59 @@
+/* Apply background to the wrapper */
+.wrapper {
+    background-image: url('img2.jpg'); /* Path to your background image */
+    background-size: cover; /* Ensure the image covers the whole container */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    height: 100vh; /* Ensure the wrapper takes up the full height of the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container styles (if you need to modify or adjust it further) */
+.container {
+    width: 100%;
+    max-width: 500px;
+    background-color: rgba(255, 255, 255, 0.8); /* Add a slight transparency to the background */
+    padding: 30px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Header styles */
+.header h1 {
+    font-size: 28px;
+    color: #005f75;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+/* Button styles */
+.buttons {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 20px; /* Adds space between the buttons */
+    margin-top: 20px; /* Adds space above the buttons */
+}
+
+button {
+    color: white;
+    background-color: #007bff;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px; /* Adds space between buttons */
+}
+
+button:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,29 @@
+<div class="wrapper">
+<div class="table-container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Service</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let booking of bookedServices">
+                <td>{{ booking.serviceName }}</td>
+                <td class="date-cell">{{ booking.bookDate | date: 'dd/MM/yyyy' }}</td>
+                <td class="status-cell">
+                    <span [ngClass]="{
+                        'status-pending': booking.reservationStatus === 'PENDING', 
+                        'status-confirmed': booking.reservationStatus === 'CONFIRMED', 
+                        'status-canceled': booking.reservationStatus === 'CANCELED'
+                    }">
+                        {{ booking.reservationStatus }}
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+<router-outlet></router-outlet>

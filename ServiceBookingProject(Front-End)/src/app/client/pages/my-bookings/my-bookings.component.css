@@ -1,0 +1,81 @@
+/* Table container with shadow and padding */
+.wrapper{
+     /* Path to your background image */
+    background-size: cover; /* Ensure the image covers the whole container */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    height: 100vh; /* Ensure the wrapper takes up the full height of the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.table-container {
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+/* Basic table styles */
+.table {
+    width: 100%;
+    border-collapse: collapse; /* Collapses borders between table cells */
+    margin-top: 20px; /* Adds space between table and the container */
+}
+
+/* Table header styling */
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd; /* Adds a border between cells */
+}
+
+/* Table header with green background and white text */
+th {
+    background-color: #285af1;
+    color: white;
+    font-size: 1.2em;
+}
+
+/* Table rows with white background */
+td {
+    background-color: #fff;
+    color: #333;
+    font-size: 1em;
+}
+
+/* Subtle color change for date column */
+.date-cell {
+    color: #888;
+}
+
+/* Bold font for status column */
+.status-cell {
+    font-weight: bold;
+}
+
+/* Dynamic status color classes */
+.status-pending {
+    color: rgb(238, 184, 21);
+}
+
+.status-confirmed {
+    color: rgb(43, 0, 128);
+}
+
+.status-canceled {
+    color: rgb(238, 184, 21);
+}
+
+/* Hover effect for rows */
+tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Even row background color */
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}

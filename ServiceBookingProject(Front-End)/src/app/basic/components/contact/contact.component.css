@@ -1,0 +1,96 @@
+/* Set the background image */
+.background-image {
+   /* Add the URL of the background image here */
+  background-size: cover; /* Make the background image cover the entire container */
+  background-position: center; /* Center the background image */
+  min-height: 100vh; /* Ensure the background covers the full height of the page */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+}
+
+/* Contact Us container styling */
+.contact-us-container {
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  padding: 30px;
+  border-radius: 10px; /* Rounded corners for the form */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow around the form */
+  max-width: 600px; /* Limit the form's width */
+  width: 100%;
+  text-align: center; /* Center the content inside the form */
+}
+
+/* Heading styling */
+.contact-us-container h3 {
+  font-size: 2rem;
+  color: #333; /* Dark color for the heading */
+  margin-bottom: 20px; /* Space below the heading */
+  font-family: 'Arial', sans-serif; /* Change font style */
+}
+
+/* Form group styling */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left; /* Align labels and input fields to the left */
+}
+
+/* Input fields and textarea styling */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px; /* Rounded corners for inputs */
+  border: 1px solid #ddd; /* Light border for inputs */
+  margin-top: 5px;
+}
+
+/* Error message styling */
+.error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 5px;
+}
+
+/* Submit button styling */
+button.btn-primary {
+  background-color: #007bff; /* Blue button */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+button.btn-primary:hover {
+  background-color: #0056b3; /* Darker blue when hovered */
+}
+
+/* Disabled button styling */
+button[disabled] {
+  background-color: #ccc; /* Gray color when disabled */
+  cursor: not-allowed; /* Change cursor to indicate the button is disabled */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-us-container {
+      padding: 20px;
+      width: 90%;
+  }
+
+  .contact-us-container h3 {
+      font-size: 1.8rem;
+  }
+
+  .form-control {
+      font-size: 0.9rem;
+  }
+
+  button.btn-primary {
+      font-size: 1rem;
+  }
+}

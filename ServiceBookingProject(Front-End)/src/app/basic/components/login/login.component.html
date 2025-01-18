@@ -1,0 +1,42 @@
+<div class="login-wrapper">
+<div class="login-container">
+  <h2>Login</h2>
+
+  <!-- Form for login -->
+  <form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    
+    <!-- Username Input -->
+    <div class="form-group">
+      <label for="userName">Username</label>
+      <input
+        id="userName"
+        formControlName="userName"
+        type="text"
+        class="form-control"
+        placeholder="Enter your username"
+      />
+      <div *ngIf="validateForm.get('userName')?.invalid && validateForm.get('userName')?.touched" class="error">
+        Username is required.
+      </div>
+    </div>
+    
+    <!-- Password Input -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        id="password"
+        formControlName="password"
+        type="password"
+        class="form-control"
+        placeholder="Enter your password"
+      />
+      <div *ngIf="validateForm.get('password')?.invalid && validateForm.get('password')?.touched" class="error">
+        Password is required.
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary" [disabled]="validateForm.invalid">Login</button>
+  </form>
+</div>
+</div>

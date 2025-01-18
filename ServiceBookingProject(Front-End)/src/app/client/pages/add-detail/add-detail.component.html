@@ -1,0 +1,50 @@
+<div class="bg" *ngIf="ad" style="background-color: #f8f8f8">
+  <div class="ad-details-container">
+    <!-- Top Section for Ad Details and Book Service Form on the Same Row -->
+    <div class="top-section">
+      <div class="ad-detail">
+        <div class="profile-container">
+          <img 
+            class="profile" 
+            [src]="avatarUrl" 
+            alt="profile" 
+            style="height:130px; width:200px; border-radius:10px;">
+        </div>
+        <div class="details-container">
+          <h2 style="cursor:pointer; color:#108ee9">{{ ad.serviceName }}</h2>
+          <h5>Price: <b>{{ ad.price }}</b></h5>
+          <h5>Description: <b>{{ ad.description }}</b> - Company Name: <b>{{ ad.companyName }}</b></h5>
+        </div>
+      </div>
+
+      <!-- Book Service Form on the Same Row -->
+      <div class="book-service">
+        <h2>Book Service</h2>
+        <form [formGroup]="validateForm">
+          <div class="form-group">
+            <label for="bookDate">Date of Booking</label>
+            <input 
+              type="date" 
+              formControlName="bookDate" 
+              name="bookDate" 
+              id="bookDate" 
+              class="form-control">
+          </div>
+          <button 
+            [disabled]="validateForm.invalid" 
+            (click)="bookService()" 
+            class="btn btn-primary">
+            Book
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Review Section (Optional) -->
+    <div class="review-section">
+      <!-- Add review-related HTML here -->
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

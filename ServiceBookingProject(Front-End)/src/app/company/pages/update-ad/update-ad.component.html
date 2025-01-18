@@ -1,0 +1,89 @@
+<div style="background-color: #f8f8f8;">
+    <div class="parent">
+        <div class="child">
+
+            <div class="imgDiv">
+                <h2 style="text-align: center;">Create Ad</h2>
+            </div>
+
+            <form [formGroup]="validateForm" (ngSubmit)="updateAd()">
+                <!-- Image Upload Section -->
+                <div class="row">
+                    <div class="file-upload-container">
+                        <label class="file-upload-label">
+                            <span style="margin-left:100px">Select a File</span>
+                            <input type="file" accept="image/x-png,image/gif,image/jpeg"
+                            (change)="onFileSelected($event)"/>
+                        </label>
+                        <div *ngIf="imagePreview" class="image-preview">
+                            <div class="circle-image">
+                                    <img [src]="imagePreview" alt="Existing Image" class="preview-image"/>
+                            </div>
+                        </div>
+
+                        <div *ngIf="existingImage" class="image-preview">
+                            <img [src]="existingImage" alt="Existing Image" class="preview-image"/>
+                        </div>
+                    </div>
+                    <!-- <div class="profile-badge">
+                        <label for="upload_profile_image" class="upload-label" *ngIf="selectedFile">
+                            <img class="profile" [src]="imagePreview" alt="profile">
+                        </label>
+                        <input id="upload_profile_image" type="file" accept="image/x-png,image/gif,image/jpeg" (change)="onFileSelected($event)" />
+                        <label for="upload_profile_image" class="choose-image-button">Choose Image</label>
+                    </div> -->
+                </div>
+
+                <!-- Service Name Input -->
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="serviceName">Service Name</label>
+                    <input
+                        id="serviceName"
+                        type="text"
+                        placeholder="Service Name"
+                        formControlName="serviceName"
+                        class="form-control"
+                    />
+                    <div class="error" *ngIf="validateForm.get('serviceName')?.invalid && validateForm.get('serviceName')?.touched">
+                        This Input Is Required
+                    </div>
+                </div>
+
+                <!-- Price Input -->
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input
+                        id="price"
+                        type="number"
+                        placeholder="Price"
+                        formControlName="price"
+                        class="form-control"
+                    />
+                    <div class="error" *ngIf="validateForm.get('price')?.invalid && validateForm.get('price')?.touched">
+                        This Input Is Required
+                    </div>
+                </div>
+
+                <!-- Description Input -->
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea
+                        id="description"
+                        rows="2"
+                        placeholder="Description"
+                        formControlName="description"
+                        class="form-control"
+                    ></textarea>
+                    <div class="error" *ngIf="validateForm.get('description')?.invalid && validateForm.get('description')?.touched">
+                        This Input Is Required
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary" [disabled]="validateForm.invalid">
+                    Update Ad
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

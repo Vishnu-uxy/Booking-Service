@@ -1,0 +1,147 @@
+/* General Container for Search Form */
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;  /* Space between navbar and search bar */
+    margin-bottom: 20px; /* Space between search bar and the ads container */
+  }
+  
+  .form-input, .form-control {
+    padding: 10px;
+    width: 250px;  /* Set a consistent width for input and dropdown */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+  
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #108ee9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0d7db7;
+  }
+  
+  button[type="submit"]:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Ads Container */
+  .ads-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;  /* Distribute cards evenly with space around them */
+    gap: 20px;  /* Space between the cards */
+    padding: 20px;
+  }
+  
+  /* Ad Card Styling */
+  .ad-card {
+    width: 280px;  /* Set a fixed width for each card */
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .ad-card:hover {
+    transform: translateY(-5px);  /* Slight lift effect on hover */
+  }
+  
+  .ad-card-inner {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+  }
+  
+  .ad-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  
+  .ad-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .ad-details {
+    text-align: center;
+  }
+  
+  .ad-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .ad-details h5 {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .view-button-container {
+    margin-top: 10px;
+  }
+  
+  button.btn-sm {
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    background-color: #108ee9;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button.btn-sm:hover {
+    background-color: #0d7db7;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    /* Adjust the search bar size for smaller screens */
+    .form-input {
+      width: 200px;  /* Reduce input width on smaller screens */
+    }
+  
+    .ads-container {
+      justify-content: center;  /* Center ads on smaller screens */
+      gap: 15px;
+    }
+  
+    .ad-card {
+      width: 100%;  /* Allow cards to fill available space */
+      max-width: 400px;  /* Set max width for cards */
+    }
+  
+    button[type="submit"] {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .form-input {
+      width: 150px;  /* Make input smaller on very small screens */
+    }
+  
+    button[type="submit"] {
+      font-size: 12px;
+    }
+  
+    .ad-card {
+      width: 100%;  /* Full width for very small screens */
+    }
+  }

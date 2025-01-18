@@ -1,0 +1,44 @@
+<div class="background-container">
+  <!-- Search Form 1 -->
+  <form [formGroup]="validateForm" (submit)="searchAdByName()" class="search-form">
+    <input type="text" placeholder="Enter service to search" formControlName="service" class="form-input" />
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+
+  <!-- Search Form 2 -->
+  <form [formGroup]="validateForm" (submit)="searchAdByCategory()" class="search-form">
+    <div class="form-group">
+      <select id="category" formControlName="category" class="form-control">
+        <option value="" disabled selected>Select a Category</option>
+        <option value="repairing">Repairing</option>
+        <option value="washing">Washing</option>
+        <option value="cleaning">Cleaning</option>
+        <option value="maintenance">Maintenance</option>
+        <option value="installation">Installation</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="validateForm.invalid">Search</button>
+  </form>
+
+  <!-- Ads Display -->
+  <div class="ads-container">
+    <div class="ad-card" *ngFor="let ad of ads">
+      <div class="ad-card-inner">
+        <div class="ad-image">
+          <img [src]="updateImg(ad.returnedImg)" alt="ad image" class="profile" />
+        </div>
+        <div class="ad-details">
+          <h2 class="ad-title">{{ ad.serviceName }}</h2>
+          <hr>
+          <h5>Price: <b>{{ ad.price }}</b></h5>
+          <h5>Description: <b>{{ ad.description }}</b></h5>
+          <h5>Category: <b>{{ ad.category }}</b></h5>
+          <hr>
+          <div class="view-button-container">
+            <button class="btn btn-primary btn-sm" [routerLink]="['/client/ad', ad.id]">View</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

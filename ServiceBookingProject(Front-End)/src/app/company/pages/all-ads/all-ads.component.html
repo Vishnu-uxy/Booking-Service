@@ -1,0 +1,32 @@
+<div class="bg">
+    <div class="child" style="margin-top: 10px;" *ngFor="let ad of ads">
+        <div class="row">
+            <div class="col-8">
+                <img class="profile" [src]="updateImg(ad.returnedImg)" style="height: 130px; width: 200px; border-radius: 10px;" />
+            </div>
+            <div class="col-16">
+                <h2 style="cursor: pointer; color: #108ee9;">
+                    {{ ad.serviceName }}
+                </h2>
+                <hr>
+
+                <h5>
+                    Price : <b>{{ ad.price }}</b>
+                </h5>
+                <h5>
+                    Description : <b>{{ ad.description }}</b>
+                </h5>
+                <h5>
+                    Category : <b>{{ ad.category }}</b>
+                </h5>
+                <hr>
+                <div style="float: right;">
+                    <button class="btn btn-primary btn-sm" routerLink="/company/update/{{ad.id}}">Update </button>
+                    <button  (click)="deleteAd(ad.id)" class="btn btn-danger btn-sm" style="margin-left: 10px;">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
