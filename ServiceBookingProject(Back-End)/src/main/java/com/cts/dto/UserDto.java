@@ -1,6 +1,6 @@
-package com.example.servicemanagementsystem.dto;
+package com.cts.dto;
 
-import com.example.servicemanagementsystem.enums.UserRole;
+import com.cts.enums.UserRole;
 
 import lombok.Data;
 

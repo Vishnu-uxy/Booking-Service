@@ -1,11 +1,11 @@
-package com.example.servicemanagementsystem.dto;
+package com.cts.dto;
 
 
 
 import java.util.Date;
 
-import com.example.servicemanagementsystem.enums.ReservationStatus;
-import com.example.servicemanagementsystem.enums.ReviewStatus;
+import com.cts.enums.ReservationStatus;
+import com.cts.enums.ReviewStatus;
 
 import lombok.Data;
 

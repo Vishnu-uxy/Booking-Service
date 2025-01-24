@@ -1,4 +1,4 @@
-package com.example.servicemanagementsystem.services.contactUs;
+package com.cts.services.contactUs;
 
 
 
@@ -7,8 +7,8 @@ package com.example.servicemanagementsystem.services.contactUs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.servicemanagementsystem.Entity.ContactUs;
-import com.example.servicemanagementsystem.Repository.ContactUsRepo;;
+import com.cts.Entity.ContactUs;
+import com.cts.Repository.ContactUsRepo;;
 
 
 

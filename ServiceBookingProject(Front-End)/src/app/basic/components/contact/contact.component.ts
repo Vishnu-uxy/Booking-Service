@@ -23,7 +23,7 @@ onSubmit() {
   if (this.contactUs.name && this.contactUs.email && this.contactUs.message) {
     // Process the form data (for example, send it to a server)
     console.log('Form submitted:', this.contactUs);
-    const url = "Http://localhost:8080/contact";
+    const url = "Http://localhost:8081/contact";
     this.http.post(url, this.contactUs).subscribe((response:any)=>{
       console.log(response);
     })

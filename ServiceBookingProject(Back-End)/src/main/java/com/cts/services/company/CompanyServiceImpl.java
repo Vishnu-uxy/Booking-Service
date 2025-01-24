@@ -1,4 +1,4 @@
-package com.example.servicemanagementsystem.services.company;
+package com.cts.services.company;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,15 +9,15 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.servicemanagementsystem.Entity.Ad;
-import com.example.servicemanagementsystem.Entity.Reservation;
-import com.example.servicemanagementsystem.Entity.User;
-import com.example.servicemanagementsystem.Repository.AdRepository;
-import com.example.servicemanagementsystem.Repository.ReservationRepository;
-import com.example.servicemanagementsystem.Repository.UserRepository;
-import com.example.servicemanagementsystem.dto.AdDTO;
-import com.example.servicemanagementsystem.dto.ReservationDTO;
-import com.example.servicemanagementsystem.enums.ReservationStatus;
+import com.cts.Entity.Ad;
+import com.cts.Entity.Reservation;
+import com.cts.Entity.User;
+import com.cts.Repository.AdRepository;
+import com.cts.Repository.ReservationRepository;
+import com.cts.Repository.UserRepository;
+import com.cts.dto.AdDTO;
+import com.cts.dto.ReservationDTO;
+import com.cts.enums.ReservationStatus;
 
 @Service
 public class CompanyServiceImpl implements CompanyService {

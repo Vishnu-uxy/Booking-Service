@@ -1,4 +1,4 @@
-package com.example.servicemanagementsystem.dto;
+package com.cts.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

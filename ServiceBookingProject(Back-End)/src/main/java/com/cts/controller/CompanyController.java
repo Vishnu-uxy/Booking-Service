@@ -1,4 +1,4 @@
-package com.example.servicemanagementsystem.controller;
+package com.cts.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.servicemanagementsystem.dto.AdDTO;
-import com.example.servicemanagementsystem.dto.ReservationDTO;
-import com.example.servicemanagementsystem.services.company.CompanyService;
+import com.cts.dto.AdDTO;
+import com.cts.dto.ReservationDTO;
+import com.cts.services.company.CompanyService;
 
 
 

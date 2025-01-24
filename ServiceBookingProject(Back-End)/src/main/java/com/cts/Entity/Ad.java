@@ -1,9 +1,9 @@
-package com.example.servicemanagementsystem.Entity;
+package com.cts.Entity;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import com.example.servicemanagementsystem.dto.AdDTO;
+import com.cts.dto.AdDTO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

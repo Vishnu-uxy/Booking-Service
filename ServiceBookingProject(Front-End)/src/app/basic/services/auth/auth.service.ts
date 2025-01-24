@@ -36,10 +36,10 @@ export class AuthService {
                 console.log(res.body)
                 console.log("auth service me Pipe wala function kaam kar raha hai")
                 this.userStorageService.saveUser(res.body);
-                //  const tokenLength=res.headers.get(AUTH_HEADER)?.length;
-                //  const bearerToken=res.headers.get(AUTH_HEADER)?.substring(7,tokenLength);
-                //  console.log(bearerToken);
-                //  this.userStorageService.saveUser(bearerToken);
+                const tokenLength=res.headers.get(AUTH_HEADER)?.length;
+                const bearerToken=res.headers.get(AUTH_HEADER)?.substring(7,tokenLength);
+                console.log(bearerToken);
+                this.userStorageService.saveToken(bearerToken);
                  return res;
             })
        );

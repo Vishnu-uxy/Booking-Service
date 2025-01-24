@@ -1,7 +1,7 @@
-package com.example.servicemanagementsystem.services.authentication;
+package com.cts.services.authentication;
 
-import com.example.servicemanagementsystem.dto.SignupRequestDto;
-import com.example.servicemanagementsystem.dto.UserDto;
+import com.cts.dto.SignupRequestDto;
+import com.cts.dto.UserDto;
 
 public interface AuthService {
 

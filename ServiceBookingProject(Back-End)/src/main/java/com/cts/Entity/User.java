@@ -1,7 +1,7 @@
-package com.example.servicemanagementsystem.Entity;
+package com.cts.Entity;
 
-import com.example.servicemanagementsystem.dto.UserDto;
-import com.example.servicemanagementsystem.enums.UserRole;
+import com.cts.dto.UserDto;
+import com.cts.enums.UserRole;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

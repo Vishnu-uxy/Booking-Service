@@ -1,4 +1,4 @@
-package com.example.servicemanagementsystem.Entity;
+package com.cts.Entity;
 
 
 

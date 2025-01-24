@@ -1,4 +1,4 @@
-package com.example.servicemanagementsystem.dto;
+package com.cts.dto;
 
 import org.springframework.web.multipart.MultipartFile;
 

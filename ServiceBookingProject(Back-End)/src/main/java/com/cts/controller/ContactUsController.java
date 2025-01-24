@@ -1,4 +1,4 @@
-package com.example.servicemanagementsystem.controller;
+package com.cts.controller;
 
 
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.servicemanagementsystem.Entity.ContactUs;
-import com.example.servicemanagementsystem.services.contactUs.ContactUsService;
+import com.cts.Entity.ContactUs;
+import com.cts.services.contactUs.ContactUsService;
 
 
 

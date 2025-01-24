@@ -1,13 +1,13 @@
-package com.example.servicemanagementsystem.Entity;
+package com.cts.Entity;
 
 import java.util.Date;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import com.example.servicemanagementsystem.dto.ReservationDTO;
-import com.example.servicemanagementsystem.enums.ReservationStatus;
-import com.example.servicemanagementsystem.enums.ReviewStatus;
+import com.cts.dto.ReservationDTO;
+import com.cts.enums.ReservationStatus;
+import com.cts.enums.ReviewStatus;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

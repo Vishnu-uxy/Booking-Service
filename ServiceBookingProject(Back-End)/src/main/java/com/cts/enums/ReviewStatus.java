@@ -1,4 +1,4 @@
-package com.example.servicemanagementsystem.enums;
+package com.cts.enums;
 
 public enum ReviewStatus {
     TRUE,

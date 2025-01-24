@@ -1,12 +1,12 @@
-package com.example.servicemanagementsystem.Repository;
+package com.cts.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.servicemanagementsystem.Entity.User;
+import com.cts.Entity.User;
 
 @Repository
 public interface UserRepository  extends JpaRepository<User,Long>{
 
-    User  findByEmail(String email);
+	User findFirstByEmail(String email);
 }

@@ -1,10 +1,10 @@
-package com.example.servicemanagementsystem.services.company;
+package com.cts.services.company;
 
 import java.io.IOException;
 import java.util.List;
 
-import com.example.servicemanagementsystem.dto.AdDTO;
-import com.example.servicemanagementsystem.dto.ReservationDTO;
+import com.cts.dto.AdDTO;
+import com.cts.dto.ReservationDTO;
 
 public interface CompanyService {
     

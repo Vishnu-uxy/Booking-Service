@@ -1,14 +1,14 @@
-package com.example.servicemanagementsystem.services.authentication;
+package com.cts.services.authentication;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.example.servicemanagementsystem.Entity.User;
-import com.example.servicemanagementsystem.Repository.UserRepository;
-import com.example.servicemanagementsystem.dto.SignupRequestDto;
-import com.example.servicemanagementsystem.dto.UserDto;
-import com.example.servicemanagementsystem.enums.UserRole;
+import com.cts.Entity.User;
+import com.cts.Repository.UserRepository;
+import com.cts.dto.SignupRequestDto;
+import com.cts.dto.UserDto;
+import com.cts.enums.UserRole;
 
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -24,7 +24,7 @@ public class AuthServiceImpl implements AuthService {
         user.setLastname(signupRequestDto.getLastname());
         user.setEmail(signupRequestDto.getEmail());
         user.setPhone(signupRequestDto.getPhone());
-        user.setPassword(signupRequestDto.getPassword());
+        user.setPassword(new BCryptPasswordEncoder().encode(signupRequestDto.getPassword()));
 
         user.setRole(UserRole.CLIENT);
         return userRepository.save(user).getDto();
@@ -34,7 +34,7 @@ public class AuthServiceImpl implements AuthService {
     public Boolean presentByEmail(String email){
 
 
-        return userRepository.findByEmail(email) != null;
+        return userRepository.findFirstByEmail(email) != null;
     }
 
     public UserDto signupCompany(SignupRequestDto signupRequestDto) {
@@ -44,7 +44,7 @@ public class AuthServiceImpl implements AuthService {
         user.setName(signupRequestDto.getName());
         user.setEmail(signupRequestDto.getEmail());
         user.setPhone(signupRequestDto.getPhone());
-        user.setPassword(signupRequestDto.getPassword());
+        user.setPassword(new BCryptPasswordEncoder().encode(signupRequestDto.getPassword()));
 
         user.setRole(UserRole.COMPANY);
         return userRepository.save(user).getDto();

@@ -38,7 +38,7 @@ return JSON.parse(localStorage.getItem(USER));
 static getUserId():string{
   const user =this.getUser();
   if(user === null){return '';}
-  return user.dto.id;
+  return user.userId;
  }
 
 
@@ -51,7 +51,7 @@ static getUserId():string{
 
  static isClientLoggedIn():boolean{
   console.log("id :",this.getUserId())
-  if(this.getUserId() === null){
+  if(this.getToken() === null){
     return false;
   }
   const  role:string=this.getUserRole();
@@ -61,7 +61,7 @@ static getUserId():string{
  static isCompanyLoggedIn():boolean{
   console.log("id :",this.getUserId())
   console.log("is company logged in")
-  if(this.getUserId() === null){
+  if(this.getToken() === null){
     return false;
   }
   const  role:string=this.getUserRole();

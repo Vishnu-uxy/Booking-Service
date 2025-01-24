@@ -1,10 +1,10 @@
-package com.example.servicemanagementsystem.services.client;
+package com.cts.services.client;
 
 import java.util.List;
 
-import com.example.servicemanagementsystem.dto.AdDTO;
-import com.example.servicemanagementsystem.dto.AdDetailsForClientDTO;
-import com.example.servicemanagementsystem.dto.ReservationDTO;
+import com.cts.dto.AdDTO;
+import com.cts.dto.AdDetailsForClientDTO;
+import com.cts.dto.ReservationDTO;
 
 public interface ClientService {
     

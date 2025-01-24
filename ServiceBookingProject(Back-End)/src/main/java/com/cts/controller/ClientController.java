@@ -1,4 +1,4 @@
-package com.example.servicemanagementsystem.controller;
+package com.cts.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.servicemanagementsystem.dto.ReservationDTO;
-import com.example.servicemanagementsystem.services.client.ClientService;
+import com.cts.dto.ReservationDTO;
+import com.cts.services.client.ClientService;
+
 import org.springframework.web.bind.annotation.PostMapping;
 
 
