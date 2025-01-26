@@ -18,92 +18,102 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cts.dto.AdDTO;
 import com.cts.dto.ReservationDTO;
+import com.cts.exceptions.ResourceNotFoundException;
 import com.cts.services.company.CompanyService;
 
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @RestController
 @RequestMapping("/api/company")
 public class CompanyController {
 
-     @Autowired
+    private static final Logger logger = LoggerFactory.getLogger(CompanyController.class);
+
+    @Autowired
     private CompanyService companyService;
     
     @PostMapping("/ad/{userId}")
     @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> postAd(@PathVariable Long userId, @ModelAttribute AdDTO adDTO) throws IOException {
-    
+        logger.info("Received request to post ad for userId: {}", userId);
         boolean success = companyService.postAd(userId, adDTO);
         if (success) {
+            logger.info("Ad posted successfully for userId: {}", userId);
             return ResponseEntity.status(HttpStatus.OK).build();
-        }
-        else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        } else {
+            logger.warn("Failed to post ad for userId: {}", userId);
+            throw new ResourceNotFoundException("Failed to post ad for userId: " + userId);
         }
     }
 
     @GetMapping("/ads/{userId}")
     @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> getAllAdsByUserId(@PathVariable Long userId) {
+        logger.info("Received request to get all ads for userId: {}", userId);
         return ResponseEntity.ok(companyService.getAllAds(userId));
     }
 
     @GetMapping("/ad/{adId}")
     @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> getAdById(@PathVariable Long adId) {
+        logger.info("Received request to get ad details for adId: {}", adId);
         AdDTO adDTO = companyService.getAdById(adId);
         if (adDTO != null) {
+            logger.info("Ad details retrieved successfully for adId: {}", adId);
             return ResponseEntity.ok(adDTO);
-        }
-        else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        } else {
+            logger.warn("No ad found for adId: {}", adId);
+            throw new ResourceNotFoundException("No ad found for adId: " + adId);
         }
     }
 
-
     @PutMapping("/ad/{adId}")
     @CrossOrigin(origins = "http://localhost:4200")
-    public ResponseEntity<?> updateAd(@PathVariable Long adId, @ModelAttribute AdDTO adDTO) throws IOException{
+    public ResponseEntity<?> updateAd(@PathVariable Long adId, @ModelAttribute AdDTO adDTO) throws IOException {
+        logger.info("Received request to update ad for adId: {}", adId);
         boolean success = companyService.updateAd(adId, adDTO);
-        if(success){
+        if (success) {
+            logger.info("Ad updated successfully for adId: {}", adId);
             return ResponseEntity.status(HttpStatus.OK).build();
-        }else{
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build() ;
+        } else {
+            logger.warn("Failed to update ad for adId: {}", adId);
+            throw new ResourceNotFoundException("Failed to update ad for adId: " + adId);
         }
-        }
-
+    }
 
     @DeleteMapping("/ad/{adId}")
     @CrossOrigin(origins = "http://localhost:4200")
-    public ResponseEntity<?> deleteAd(@PathVariable Long adId){
-        boolean success=companyService.deleteAd(adId);
-        if(success){
+    public ResponseEntity<?> deleteAd(@PathVariable Long adId) {
+        logger.info("Received request to delete ad for adId: {}", adId);
+        boolean success = companyService.deleteAd(adId);
+        if (success) {
+            logger.info("Ad deleted successfully for adId: {}", adId);
             return ResponseEntity.status(HttpStatus.OK).build();
-        }else{
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        } else {
+            logger.warn("Failed to delete ad for adId: {}", adId);
+            throw new ResourceNotFoundException("Failed to delete ad for adId: " + adId);
         }
-
     }
 
     @GetMapping("/bookings/{companyId}")
     @CrossOrigin(origins = "http://localhost:4200")
-    public ResponseEntity<List<ReservationDTO>> getAllAdBookings(@PathVariable Long companyId){
-     return ResponseEntity.ok(companyService.getAllAdBookings(companyId));
-}
-
+    public ResponseEntity<List<ReservationDTO>> getAllAdBookings(@PathVariable Long companyId) {
+        logger.info("Received request to get all bookings for companyId: {}", companyId);
+        return ResponseEntity.ok(companyService.getAllAdBookings(companyId));
+    }
 
     @GetMapping("/booking/{bookingId}/{status}")
     @CrossOrigin(origins = "http://localhost:4200")
-    public ResponseEntity<?> changeBookingStatus(@PathVariable Long bookingId,@PathVariable String status){
-        boolean success=companyService.changeBookingStatus(bookingId, status);
-        if(success) return ResponseEntity.ok().build();
-        return ResponseEntity.notFound().build();
+    public ResponseEntity<?> changeBookingStatus(@PathVariable Long bookingId, @PathVariable String status) {
+        logger.info("Received request to change booking status for bookingId: {}, status: {}", bookingId, status);
+        boolean success = companyService.changeBookingStatus(bookingId, status);
+        if (success) {
+            logger.info("Booking status changed successfully for bookingId: {}, status: {}", bookingId, status);
+            return ResponseEntity.ok().build();
+        } else {
+            logger.warn("Failed to change booking status for bookingId: {}, status: {}", bookingId, status);
+            throw new ResourceNotFoundException("Failed to change booking status for bookingId: " + bookingId + ", status: " + status);
+        }
     }
-
-
-
-
-
-
-
 }
