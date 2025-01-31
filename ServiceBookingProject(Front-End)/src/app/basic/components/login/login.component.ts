@@ -38,25 +38,7 @@ export class LoginComponent {
        this.validateForm.get(['userName'])!.value,
        this.validateForm.get(['password'])!.value)
        
-    //  .subscribe((res: any) =>{
-    //   const userId = res.body.id; // Assuming the backend sends `id` as the user ID
-    //   console.log("User ID:", userId);
-
-    //   // Save the userId in the UserService
-    //   this.userService.setUserId(userId);
-
-    //   const userRole = res.body.dto.role;
-    //   console.log("User Role:", userRole);
-    //    console.log(">>>>>>",res);
-    //    if (userRole === "CLIENT") {
-    //     this.router.navigateByUrl('client/dashboard');
-    //   } else if (userRole === "COMPANY") {
-    //     this.router.navigateByUrl('company/dashboard');
-    //   }
-     
- 
-    //  },
-
+  
     .subscribe((res: any) =>{
       console.log(res);
       if(UserStorageService.isClientLoggedIn()){
